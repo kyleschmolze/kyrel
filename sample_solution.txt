@@ -1,0 +1,24 @@
+THIS IS A SAMPLE SOLUTION, PLEASE USE THIS FORMAT FOR YOUR SUBMISSIONS.
+
+1. Write a program which draws a green circle in the top-right corner of the grid.
+
+  function main() {
+    moveRight();
+    moveRight();
+    moveRight();
+    moveRight();
+    useGreen();
+    draw();
+  }
+
+2. Write a program which draws X blue circles across the top row, where X is a variable you declare.
+
+  var x = 3;
+
+  function main() {
+    useBlue();
+    for(var i = 0; i < x; i++) {
+      draw();
+      moveRight();
+    }
+  }
