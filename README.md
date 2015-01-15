@@ -2,7 +2,7 @@
 Just click "Download ZIP" on the right side of this Github page.
 
 #### Doing
-Please build your programs by writing your instructions into the `main` function. 
+Please build your programs by writing your instructions into the `main` function in `kyrel.js`. 
 When you're done with a problem, just copy-paste the entire `main` function, as well as any variables you've
 declared above it, into a separate file called `solutions.txt`. Please put all solutions into a single document. It should look
 like [sample_solutions.txt](./sample_solutions.txt) (but with more solutions, of course).
