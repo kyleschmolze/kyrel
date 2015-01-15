@@ -3,6 +3,12 @@
   margin: 10px auto;
 }
 
+.container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 .grid {
   float: left;
   width: 60%;
@@ -29,4 +35,16 @@ table tr td {
   height: 30px;
   width: 30px;
   border-radius: 15px;
+}
+
+.btn {
+  background-color: white;
+  text-decoration: none;
+  border: 1px solid #777;
+  padding: 10px;
+  border-radius: 3px;
+}
+
+.reset {
+  display: none;
 }

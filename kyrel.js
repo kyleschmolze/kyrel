@@ -1,24 +1,59 @@
+var grid, colors, kyrel, return_value;
+/*
+   If you need variables, please declare up here!
+   That way, you will be able to check them out in the Chrome console.
+   Just don't use any that I'm already using.
+*/
+
+
+/*
+  Configure the starting position of the grid here.
+    '.' => empty
+    'b' => blue
+    'g' => green
+*/
+var starting_grid = [
+  [ '.', '.', '.', '.', '.' ],
+  [ '.', '.', 'b', 'g', '.' ],
+  [ '.', '.', 'b', 'g', '.' ],
+  [ '.', '.', 'g', '.', '.' ],
+  [ '.', '.', '.', '.', '.' ],
+];
+
 /*
    Please write all of your code inside the "main" function below.
-
    Use this file to build your programs. When you're done, copy-paste the solutions into
    a separate file, using the format of sample_solution.txt.
 */
 
-
-/*
-   If you need variables, please declare them BEFORE the "main" function.
-   That way, you will be able to check them out in the Chrome console.
-   Just make sure not to use any of the same variable names that I am using below!
-   (grid, colors, kyrel, instructions, play, step, currentSquare, moveLeft, any other instructions)
-*/
-
-// eg: var x = 3;
-
 function main() {
   // Your code goes in here!
-
+  moveRight();
+  moveRight();
+  moveDown();
+  if(onGreen()) {
+    erase();
+    moveRight();
+    useGreen();
+    draw();
+  }
+  if(onBlue()) {
+    erase();
+    moveRight();
+    useBlue();
+    draw();
+  }
+  return 5;
 }
+
+/*
+  Need:
+    - Homework
+    - Quiz(zes)
+    - explain debugger in notes
+    - comment up your code
+*/
+  
 
 
 
@@ -35,80 +70,60 @@ function main() {
 //////////////////////////////
 
 
-var grid = {
+grid = {
   x: 5,
   y: 5
 }
 
-var colors = {
+colors = {
   empty: '#fff',
   gray: '#ccc',
   blue: 'blue',
   green: 'green'
 };
 
-var kyrel = {
+kyrel = {
   x: 0,
   y: 0,
   color: colors.blue
 };
 
-var instructions = [];
-
-function moveLeft() {
-  instructions.push('moveLeft');
-}
-function moveRight() {
-  instructions.push('moveRight');
-}
-function moveUp() {
-  instructions.push('moveUp');
-}
-function moveDown() {
-  instructions.push('moveDown');
-}
-function draw() {
-  instructions.push('draw');
-}
-function erase() {
-  instructions.push('erase');
-}
-function useGreen() {
-  instructions.push('useGreen');
-}
-function useBlue() {
-  instructions.push('useBlue');
+function play() {
+  return_value = main();
+  if(typeof return_value !== 'undefined') {
+    $(".instructions").append("<div><strong>returned "+return_value+"</strong></div>");
+  }
+  $(".play").hide();
+  $(".reset").show();
 }
 
+function reset() {
+  kyrel.x = 0;
+  kyrel.y = 0;
+  kyrel.color = colors.blue;
+  updateGrid();
+  initializeGrid();
+  $(".instructions").html('');
 
-function step() {
-  if(instructions.length == 0) {
-    clearInterval(interval);
-  } else {
-    var instruction = instructions.shift();
-    if(instruction == 'moveLeft') {
-      actuallyMoveLeft();
-    } else if (instruction == 'moveRight') {
-      actuallyMoveRight();
-    } else if (instruction == 'moveUp') {
-      actuallyMoveUp();
-    } else if (instruction == 'moveDown') {
-      actuallyMoveDown();
-    } else if (instruction == 'draw') {
-      actuallyDraw();
-    } else if (instruction == 'erase') {
-      actuallyErase();
-    } else if (instruction == 'useBlue') {
-      actuallyUseBlue();
-    } else if (instruction == 'useGreen') {
-      actuallyUseGreen();
+  $(".reset").hide();
+  $(".play").show();
+}
+
+function initializeGrid() {
+  for(var i = 0; i < grid.x; i++) {
+    for(var j = 0; j < grid.x; j++) {
+      var cell = $("tr").eq(i).find("td").eq(j);
+      if(starting_grid[i][j] == 'b') {
+        cell.html('<div class="dot dot-blue"></div>')
+        cell.find('.dot').css('background', colors.blue);
+      } else if(starting_grid[i][j] == 'g') {
+        cell.html('<div class="dot dot-green"></div>')
+        cell.find('.dot').css('background', colors.green);
+      } else {
+        cell.find(".dot").remove();
+      }
     }
   }
-}
-
-var interval;
-function play() {
-  interval = setInterval(step, 500);
 }
 
 function updateGrid() {
@@ -120,7 +135,7 @@ function currentSquare() {
   return $("tr").eq(kyrel.y).find("td").eq(kyrel.x);
 }
 
-function actuallyMoveLeft() {
+function moveLeft() {
   $(".instructions").append("<div>moveLeft</div>");
   if(kyrel.x > 0) {
     kyrel.x = kyrel.x - 1;
@@ -128,7 +143,7 @@ function actuallyMoveLeft() {
   }
 }
 
-function actuallyMoveRight() {
+function moveRight() {
   $(".instructions").append("<div>moveRight</div>");
   if(kyrel.x < grid.x - 1) {
     kyrel.x = kyrel.x + 1;
@@ -136,7 +151,7 @@ function actuallyMoveRight() {
   }
 }
 
-function actuallyMoveUp() {
+function moveUp() {
   $(".instructions").append("<div>moveUp</div>");
   if(kyrel.y > 0) {
     kyrel.y = kyrel.y - 1;
@@ -144,7 +159,7 @@ function actuallyMoveUp() {
   }
 }
 
-function actuallyMoveDown() {
+function moveDown() {
   $(".instructions").append("<div>moveDown</div>");
   if(kyrel.y < grid.y - 1) {
     kyrel.y = kyrel.y + 1;
@@ -152,36 +167,44 @@ function actuallyMoveDown() {
   }
 }
 
-function actuallyDraw() {
+function draw() {
   $(".instructions").append("<div>draw</div>");
   currentSquare().html('<div class="dot"></div>')
-  currentSquare().find('.dot').css('background', kyrel.color);
+  currentSquare().find('.dot').css('background', kyrel.color).addClass('dot-'+kyrel.color);
 }
 
-function actuallyErase() {
+function erase() {
   $(".instructions").append("<div>erase</div>");
   currentSquare().find(".dot").remove();
 }
 
-function actuallyUseBlue() {
+function useBlue() {
   $(".instructions").append("<div>useBlue</div>");
   kyrel.color = colors.blue;
   updateGrid();
 }
 
-function actuallyUseGreen() {
+function useGreen() {
   $(".instructions").append("<div>useGreen</div>");
   kyrel.color = colors.green;
   updateGrid();
 }
 
+function onBlue() {
+  return currentSquare().find(".dot.dot-blue").length > 0;
+}
+
+function onGreen() {
+  return currentSquare().find(".dot.dot-green").length > 0;
+}
+
 $(document).ready(function() {
   //attach listeners
-  $(".step").click(step);
   $(".play").click(play);
+  $(".reset").click(reset);
 
   // Start it up!
-  main();
+  initializeGrid();
   updateGrid();
 });
 

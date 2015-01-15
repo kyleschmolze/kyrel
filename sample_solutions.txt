@@ -13,9 +13,10 @@ THIS IS A SAMPLE SOLUTION, PLEASE USE THIS FORMAT FOR YOUR SUBMISSIONS.
 
 2. Write a program which draws X blue circles across the top row, where X is a variable you declare.
 
-  var x = 3;
+  var x;
 
   function main() {
+    x = 3;
     useBlue();
     for(var i = 0; i < x; i++) {
       draw();
