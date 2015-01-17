@@ -32,14 +32,6 @@ function main(n) {
                    useGreen(), useBlue(), draw(), erase(),
                    onGreen(), onBlue()
   */
-
-  useBlue();
-
-  for(var i = 0; i < 5; i++) {
-    draw();
-    moveRight();
-  }
-
   
 }
 
