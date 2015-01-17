@@ -1,4 +1,4 @@
-var grid, colors, kyrel, return_value;
+var grid, colors, kyrel, return_value, rando;
 /*
    If you need variables, please declare them up here!
    That way, you will be able to check them out in the Chrome console.
@@ -14,9 +14,9 @@ var grid, colors, kyrel, return_value;
 */
 var starting_grid = [
   [ '.', '.', '.', '.', '.' ],
-  [ '.', '.', 'b', '.', '.' ],
-  [ '.', '.', 'b', '.', '.' ],
-  [ '.', '.', 'g', '.', '.' ],
+  [ '.', '.', '.', '.', '.' ],
+  [ '.', '.', '.', '.', '.' ],
+  [ '.', '.', '.', '.', '.' ],
   [ '.', '.', '.', '.', '.' ],
 ];
 
@@ -26,21 +26,14 @@ var starting_grid = [
    a separate file, using the format of sample_solution.txt.
 */
 
-function main() {
+function main(n) {
   /* Your code goes in here!
      You can call: moveRight(), moveLeft(), moveUp(), moveDown(), 
                    useGreen(), useBlue(), draw(), erase(),
                    onGreen(), onBlue()
   */
-  moveRight();
-  moveRight();
-  moveDown();
-  if(onBlue()) {
-    erase();
-    moveRight();
-    draw();
-    return 1;
-  }
+
+  
 }
 
 /*
@@ -86,7 +79,7 @@ kyrel = {
 };
 
 function play() {
-  return_value = main();
+  return_value = main(rando);
   if(typeof return_value !== 'undefined') {
     $(".instructions").append("<div><strong>returned "+return_value+"</strong></div>");
   }
@@ -196,6 +189,9 @@ function onGreen() {
 }
 
 $(document).ready(function() {
+  rando = parseInt(Math.random()*10)
+  console.log("Our random number for this run is "+rando);
+
   //attach listeners
   $(".play").click(play);
   $(".reset").click(reset);
