@@ -33,18 +33,15 @@ function main(n) {
                    onGreen(), onBlue()
   */
 
+  useBlue();
+
+  for(var i = 0; i < 5; i++) {
+    draw();
+    moveRight();
+  }
+
   
 }
-
-/*
-  Need:
-    - Homework
-    - Quiz(zes)
-    - explain debugger in notes
-    - comment up your code
-*/
-  
-
 
 
 
