@@ -1,6 +1,6 @@
 var grid, colors, kyrel, return_value;
 /*
-   If you need variables, please declare up here!
+   If you need variables, please declare them up here!
    That way, you will be able to check them out in the Chrome console.
    Just don't use any that I'm already using.
 */
@@ -14,8 +14,8 @@ var grid, colors, kyrel, return_value;
 */
 var starting_grid = [
   [ '.', '.', '.', '.', '.' ],
-  [ '.', '.', 'b', 'g', '.' ],
-  [ '.', '.', 'b', 'g', '.' ],
+  [ '.', '.', 'b', '.', '.' ],
+  [ '.', '.', 'b', '.', '.' ],
   [ '.', '.', 'g', '.', '.' ],
   [ '.', '.', '.', '.', '.' ],
 ];
@@ -27,23 +27,20 @@ var starting_grid = [
 */
 
 function main() {
-  // Your code goes in here!
+  /* Your code goes in here!
+     You can call: moveRight(), moveLeft(), moveUp(), moveDown(), 
+                   useGreen(), useBlue(), draw(), erase(),
+                   onGreen(), onBlue()
+  */
   moveRight();
   moveRight();
   moveDown();
-  if(onGreen()) {
-    erase();
-    moveRight();
-    useGreen();
-    draw();
-  }
   if(onBlue()) {
     erase();
     moveRight();
-    useBlue();
     draw();
+    return 1;
   }
-  return 5;
 }
 
 /*
