@@ -2,7 +2,7 @@ var grid, colors, kyrel, return_value, rando;
 /*
    If you need variables, please declare them up here!
    That way, you will be able to check them out in the Chrome console.
-   Just don't use any that I'm already using.
+   Just don't use any that I'm already using!
 */
 
 
@@ -24,16 +24,27 @@ var starting_grid = [
    Please write all of your code inside the "main" function below.
    Use this file to build your programs. When you're done, copy-paste the solutions into
    a separate file, using the format of sample_solution.txt.
+
+   You can call: moveRight(), moveLeft(), moveUp(), moveDown(), 
+                 useGreen(), useBlue(), draw(), erase(),
+                 onGreen(), onBlue()
 */
 
-function main(n) {
-  /* Your code goes in here!
-     You can call: moveRight(), moveLeft(), moveUp(), moveDown(), 
-                   useGreen(), useBlue(), draw(), erase(),
-                   onGreen(), onBlue()
-  */
-  
-}
+function main(n) { // <<< main function starts here!
+
+  //////////////////////////////////
+  //// v YOUR CODE BELOW HERE v ////
+  //////////////////////////////////
+
+
+  // code here!
+
+
+  //////////////////////////////////
+  //// ^ YOUR CODE ABOVE HERE ^ ////
+  //////////////////////////////////
+
+} // <<<  WARNING! main function ends here! Mind you don't lose it or comment it out!
 
 
 
