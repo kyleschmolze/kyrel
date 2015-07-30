@@ -1,52 +1,43 @@
-var grid, colors, kyrel, return_value, rando;
+var row, colors, kyrel, return_value, rando;
+
 /*
-   If you need variables, please declare them up here!
+   If you need variables, please declare them ^up here^!
    That way, you will be able to check them out in the Chrome console.
    Just don't use any that I'm already using!
-*/
 
+   INSTRUCTIONS:
+   - Write all of your code inside the "main" function below.
+   - Use this file to build/test your programs.
 
-/*
-  Configure the starting position of the grid here.
+   You can call: moveRight(), moveLeft(),
+                 useGreen(), useBlue(), draw(), erase(),
+                 onGreen(), onBlue()
+
+  You can also (re)configure the initial state of the row:
     '.' => empty
     'b' => blue
     'g' => green
 */
-var starting_grid = [
-  [ '.', '.', '.', '.', '.' ],
-  [ '.', '.', '.', '.', '.' ],
-  [ '.', '.', '.', '.', '.' ],
-  [ '.', '.', '.', '.', '.' ],
-  [ '.', '.', '.', '.', '.' ],
-];
 
-/*
-   Please write all of your code inside the "main" function below.
-   Use this file to build your programs. When you're done, copy-paste the solutions into
-   a separate file, using the format of sample_solution.txt.
+var initial_state = [ '.', '.', '.', '.', '.' ];
 
-   You can call: moveRight(), moveLeft(), moveUp(), moveDown(), 
-                 useGreen(), useBlue(), draw(), erase(),
-                 onGreen(), onBlue()
-*/
-
-function main(n) { // <<< main function starts here!
+function main(n) {
 
   //////////////////////////////////
+  ////                          ////
   //// v YOUR CODE BELOW HERE v ////
+  ////                          ////
   //////////////////////////////////
 
 
-  // code here!
-
 
   //////////////////////////////////
+  ////                          ////
   //// ^ YOUR CODE ABOVE HERE ^ ////
+  ////                          ////
   //////////////////////////////////
 
-} // <<<  WARNING! main function ends here! Mind you don't lose it or comment it out!
-
-
+} // END MAIN
 
 
 
@@ -60,9 +51,8 @@ function main(n) { // <<< main function starts here!
 //////////////////////////////
 
 
-grid = {
-  x: 5,
-  y: 5
+row = {
+  x: 5
 }
 
 colors = {
@@ -74,7 +64,6 @@ colors = {
 
 kyrel = {
   x: 0,
-  y: 0,
   color: colors.blue
 };
 
@@ -89,71 +78,52 @@ function play() {
 
 function reset() {
   kyrel.x = 0;
-  kyrel.y = 0;
   kyrel.color = colors.blue;
-  updateGrid();
-  initializeGrid();
+  updateRow();
+  initializeRow();
   $(".instructions").html('');
 
   $(".reset").hide();
   $(".play").show();
 }
 
-function initializeGrid() {
-  for(var i = 0; i < grid.x; i++) {
-    for(var j = 0; j < grid.x; j++) {
-      var cell = $("tr").eq(i).find("td").eq(j);
-      if(starting_grid[i][j] == 'b') {
+function initializeRow() {
+    for(var j=0; j<row.x; j++) {
+      var cell = $("tr").find("td").eq(j);
+      if(initial_state[j] == 'b') {
         cell.html('<div class="dot dot-blue"></div>')
         cell.find('.dot').css('background', colors.blue);
-      } else if(starting_grid[i][j] == 'g') {
+      } else if(initial_state[j] == 'g') {
         cell.html('<div class="dot dot-green"></div>')
         cell.find('.dot').css('background', colors.green);
       } else {
         cell.find(".dot").remove();
       }
     }
-  }
 }
 
-function updateGrid() {
+function updateRow() {
   $("td").css('border-color', colors.gray);
   currentSquare().css('border-color', kyrel.color);
 }
 
 function currentSquare() {
-  return $("tr").eq(kyrel.y).find("td").eq(kyrel.x);
+  return $("tr").find("td").eq(kyrel.x);
 }
 
 function moveLeft() {
   $(".instructions").append("<div>moveLeft</div>");
   if(kyrel.x > 0) {
     kyrel.x = kyrel.x - 1;
-    updateGrid();
+    updateRow();
   }
 }
 
 function moveRight() {
   $(".instructions").append("<div>moveRight</div>");
-  if(kyrel.x < grid.x - 1) {
+  if(kyrel.x < row.x - 1) {
     kyrel.x = kyrel.x + 1;
-    updateGrid();
-  }
-}
-
-function moveUp() {
-  $(".instructions").append("<div>moveUp</div>");
-  if(kyrel.y > 0) {
-    kyrel.y = kyrel.y - 1;
-    updateGrid();
-  }
-}
-
-function moveDown() {
-  $(".instructions").append("<div>moveDown</div>");
-  if(kyrel.y < grid.y - 1) {
-    kyrel.y = kyrel.y + 1;
-    updateGrid();
+    updateRow();
   }
 }
 
@@ -171,13 +141,13 @@ function erase() {
 function useBlue() {
   $(".instructions").append("<div>useBlue</div>");
   kyrel.color = colors.blue;
-  updateGrid();
+  updateRow();
 }
 
 function useGreen() {
   $(".instructions").append("<div>useGreen</div>");
   kyrel.color = colors.green;
-  updateGrid();
+  updateRow();
 }
 
 function onBlue() {
@@ -197,7 +167,7 @@ $(document).ready(function() {
   $(".reset").click(reset);
 
   // Start it up!
-  initializeGrid();
-  updateGrid();
+  initializeRow();
+  updateRow();
 });
 
