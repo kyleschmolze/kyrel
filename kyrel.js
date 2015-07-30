@@ -76,17 +76,6 @@ function play() {
   $(".reset").show();
 }
 
-function reset() {
-  kyrel.x = 0;
-  kyrel.color = colors.blue;
-  updateRow();
-  initializeRow();
-  $(".instructions").html('');
-
-  $(".reset").hide();
-  $(".play").show();
-}
-
 function initializeRow() {
     for(var j=0; j<row.x; j++) {
       var cell = $("tr").find("td").eq(j);
@@ -164,7 +153,6 @@ $(document).ready(function() {
 
   //attach listeners
   $(".play").click(play);
-  $(".reset").click(reset);
 
   // Start it up!
   initializeRow();
