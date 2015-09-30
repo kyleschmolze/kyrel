@@ -5,10 +5,10 @@
 // main //
 //////////
 
-var n = 4; // this can change
+n = 3; // this can change
 
 for(var i=0; i<5; i++){
-    if ( i%n === 0 ){
+    if ( (i+1)%n === 0 ){
         erase();
     }
     moveRight();
