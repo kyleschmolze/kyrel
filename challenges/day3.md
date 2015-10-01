@@ -21,7 +21,7 @@
 3. pull_blues_left - [solution](/challenges/solutions/pull_blues_left.js)
 
   start:  ['b', 'g', 'g', 'b', 'b']  
-  finish: ['g', 'b', 'b', 'g', 'g']  
+  finish: ['b', 'b', 'b', 'g', 'g']  
 
 4. reverse_row - [solution](/challenges/solutions/reverse_row.js)
 
