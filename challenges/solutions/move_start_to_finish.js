@@ -4,18 +4,23 @@
 // initial_state =  ['g', '.', '.', '.', '.'];
 // end_state = ['.', '.', '.', '.', 'g'];
 
+// initial_state = ['.', '.', '.', '.', '.'];
+// end_state = ['.', '.', '.', '.', '.'];
+
 //////////
 // main //
 //////////
 
 if( onBlue() ) {
     useBlue();
-} else if ( onGreen() ){
+} else if ( onGreen() ) {
     useGreen();
 }
-
-moveRight();
-moveRight();
-moveRight();
-moveRight();
-draw();
+if( onBlue() || onGreen() ) {
+    erase();
+    moveRight();
+    moveRight();
+    moveRight();
+    moveRight();
+    draw();
+}

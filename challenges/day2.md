@@ -31,8 +31,8 @@
   
 5. every_n_erase - [solution](/challenges/solutions/every_n_erase.js)
 
-  start:  ['b', 'b', 'b', 'b', 'b']  
-  finish: ['.','.','.','.','.'] \(given n is 1)
+  start:  ['b', 'b', 'b', 'b', 'b'] 
+  finish: ['.', '.', '.', '.', '.'] \(given n is 1)
   finish: ['b', '.', 'b', '.', 'b']  \(given n is 2)  
   finish: ['b', 'b', 'b', 'b', '.']  \(given n is 5)  
 
