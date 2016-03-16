@@ -31,10 +31,10 @@
   
 5. every_n_erase - [solution](/challenges/solutions/every_n_erase.js)
 
-  start:  ['b', 'b', 'b', 'b', 'b'] 
-  finish: ['.', '.', '.', '.', '.'] \(given n is 1)
-  finish: ['b', '.', 'b', '.', 'b']  \(given n is 2)  
-  finish: ['b', 'b', 'b', 'b', '.']  \(given n is 5)  
+  start:  ['b', 'b', 'b', 'b', 'b']  
+  finish: ['.', '.', '.', '.', '.'] // (given n is 1)  
+  finish: ['b', '.', 'b', '.', 'b'] // (given n is 2)   
+  finish: ['b', 'b', 'b', 'b', '.'] // (given n is 5)  
 
 6. move_the_blue_dot_one_to_the_right - [solution](/challenges/solutions/move_the_blue_dot_one_to_the_right.js)
 
