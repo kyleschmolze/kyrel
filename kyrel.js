@@ -21,7 +21,7 @@ var row, colors, kyrel, return_value, rando;
 
 var initial_state = [ '.', '.', '.', '.', '.' ];
 
-function main(n) {
+function main() {
 
   //////////////////////////////////
   ////                          ////
@@ -68,7 +68,7 @@ kyrel = {
 };
 
 function play() {
-  return_value = main(rando);
+  return_value = main();
   if(typeof return_value !== 'undefined') {
     $(".instructions").append("<div><strong>returned "+return_value+"</strong></div>");
   }
