@@ -1,48 +1,3 @@
-var row, colors, kyrel, return_value, rando;
-
-/*
-   If you need variables, please declare them ^up here^!
-   That way, you will be able to check them out in the Chrome console.
-   Just don't use any that I'm already using!
-
-   INSTRUCTIONS:
-   - Write all of your code inside the "main" function below.
-   - Use this file to build/test your programs.
-
-   You can call: moveRight(), moveLeft(),
-                 useGreen(), useBlue(), draw(), erase(),
-                 onGreen(), onBlue()
-
-  You can also (re)configure the initial state of the row:
-    '.' => empty
-    'b' => blue
-    'g' => green
-*/
-
-var initial_state = [ '.', '.', '.', '.', '.' ];
-
-function main() {
-
-  //////////////////////////////////
-  ////                          ////
-  //// v YOUR CODE BELOW HERE v ////
-  ////                          ////
-  //////////////////////////////////
-
-
-
-  //////////////////////////////////
-  ////                          ////
-  //// ^ YOUR CODE ABOVE HERE ^ ////
-  ////                          ////
-  //////////////////////////////////
-
-} // END MAIN
-
-
-
-
-
 //////////////////////////////
 //
 // BEWARE, INNER WORKINGS BELOW
@@ -50,25 +5,30 @@ function main() {
 //
 //////////////////////////////
 
+// overriden by play.js
+var initial_state = [ '.', '.', '.', '.', '.' ];
 
-row = {
+// overriden by play.js
+function main() {}
+
+var row = {
   x: 5
-}
+};
 
-colors = {
+var colors = {
   empty: '#fff',
   gray: '#ccc',
   blue: 'blue',
   green: 'green'
 };
 
-kyrel = {
+var kyrel = {
   x: 0,
   color: colors.blue
 };
 
 function play() {
-  return_value = main();
+  var return_value = main();
   if(typeof return_value !== 'undefined') {
     $(".instructions").append("<div><strong>returned "+return_value+"</strong></div>");
   }
@@ -148,7 +108,7 @@ function onGreen() {
 }
 
 $(document).ready(function() {
-  rando = parseInt(Math.random()*10)
+  var rando = parseInt(Math.random()*10);
   console.log("Our random number for this run is "+rando);
 
   //attach listeners

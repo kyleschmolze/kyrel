@@ -48,7 +48,7 @@ Solutions may be found in the [/solutions](/challenges/solutions) folder. NO PEE
 
 ### Using kyrel.js
 
-If you look in `kyrel.js` you'll see this:
+If you look in `play.js` you'll see this:
 
 ``` js
 var initial_state = [ '.', '.', '.', '.', '.' ];
@@ -69,21 +69,21 @@ function main(n) {
   ////                          ////
   //////////////////////////////////
 
-} // END MAIN
+}
 ```
 
-* First, you need to manually configure your "starting row" (see kyrel.js#L22) to match the initial state of the problem you're solving.
-    - `var initial_state = ['.', 'b', '.', 'g', '.'] // kyrel.js#L22`
+* First, you need to manually configure your "starting row" (see `play.js#L22`) to match the initial state of the problem you're solving.
+    - `var initial_state = ['.', 'b', '.', 'g', '.'] // play.js#L22`
         + 'b' means blue
         + 'g' mean green
-        + '.' means empty
-* Next, write your instructions inside the `main` function in [kyrel.js](/kyrel.js#L24).
-    * TIP: If you declare your variables at the very TOP of the kyrel.js file, your values will be in the "global scope". This will make it easier for you to see them in your console / play with them.
-* To run the program, open `index.html` in your browser and press "Play". This will execute the code you put in `main.js`.
+        + '.' (dot) means empty
+* Next, write your instructions inside the `main` function in [play.js](/play.js#L24).
+    * TIP: If you declare your variables at the very TOP of the play.js file, your values will be in the "global scope". This can make it easier for you to see them in your console / play with them.
+* To run the program, open `index.html` in your browser and press "Play". This will execute the code you put in your `main` function in `play.js#L24`.
     * TIP: Make sure to refresh the page whenever you make changes to your javascript!
     * PRO-TIP: Always have your Chrome Developer Console open ([here's how](http://jsforcats.com/#basics)), and make sure to check for error messages!
 
-* When you've completed a problem, save your work! Copy-paste your entire `main` function, as well as any variables you've declared above it, into a separate file called `solutions.txt`. Please record all solutions in a single document. It should look like [sample_solutions.txt](./sample_solutions.txt) (but with more solutions, of course).
+* When you've completed a problem, save your work! Make a copy of `play.js` and rename it e.g. `solution-all-blue.js`. Then, go back to `play.js` and clear out your `main` function so you can start fresh again.
 
 #### Inspiration
 Adapted from [Kyrel](https://github.com/kyletns/kyrel).
