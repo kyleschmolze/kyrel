@@ -1,14 +1,15 @@
 /*
-  INSTRUCTIONS:
+  INSTRUCTIONS
     - Write all of your code inside the "main" function below.
     - Use this file to build/test your programs.
-    - When you finish a challenge, save your work:
-        make a copy of this file and rename it e.g. 'solution-all-blue.js'
+    - To save your work, when you finish a challenge:
+        - make a copy of this file and name it e.g. 'solution-all-blue.js'
+        - then clean out play.js so you can start fresh on a new challenge.
 
-  RESERVED WORDS (do not use as variable names):
-      row, colors, kyrel, return_value, rando
+  RESERVED WORDS (do not use as variable names)
+      row, colors, kyrel, initial_state
 
-  AVAILABLE METHODS:
+  AVAILABLE METHODS
       moveRight(), moveLeft(),
       useGreen(), useBlue(), draw(), erase(),
       onGreen(), onBlue()
@@ -37,4 +38,4 @@ function main() {
   ////                          ////
   //////////////////////////////////
 
-} // <--- be careful not to delete or comment this line out!
+} // <--- be careful not to delete or comment-out this closing bracket!
