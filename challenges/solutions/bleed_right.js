@@ -8,13 +8,18 @@
 // main //
 //////////
 
-for(var j=0; j<5; j++) {
-  if ( onBlue() ) {
-    useBlue()
-  } else if ( onGreen() ) {
-    useGreen();
-  } else {
+for (var i = 0; i < 5; i++) {
+  if(onBlue()){
+    useBlue();
+    moveRight();
     draw();
   }
+  else if(onGreen()){
+    useGreen();
+    moveRight();
+    draw();
+  }
+  else{
   moveRight();
+  }
 }
