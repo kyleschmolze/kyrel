@@ -130,11 +130,11 @@ function CodeArea($el, store) {
     try {
       cb( this.rawCode() );
     } catch (err) {
-      this.displayError();
+      this.displayError(err.name);
     }
   }
-  this.displayError = function(){
-    this.$el.addClass("has-error");
+  this.displayError = function(errorType){
+    this.$el.parent().append(`<p class="error-msg">${errorType}</p>`);
   }
   this.removeError = function(){
     this.$el.removeClass("has-error");

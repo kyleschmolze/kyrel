@@ -53,8 +53,8 @@ table tr td {
   border: 1px dashed grey;
 }
 
-#coding-area.has-error {
-  border-color: red;
+.error-msg {
+  color: red;
 }
 #coding-area.has-error::after {
   display: block;
