@@ -32,8 +32,8 @@ function play() {
   if(typeof return_value !== 'undefined') {
     $(".instructions").append("<div><strong>returned "+return_value+"</strong></div>");
   }
-  // $(".play").hide();
-  // $(".reset").show();
+  $(".play").hide();
+  $(".reset").show();
 }
 
 function initializeRow() {
@@ -132,6 +132,19 @@ $(document).ready(function() {
   var rando = parseInt(Math.random()*10);
   console.log("Our random number for this run is "+rando);
 
+  window.onhashchange = updateInitialState;
+  function updateInitialState(){
+    window.initial_state = window.location.hash.slice(1).split("");
+    initializeRow();
+  }
+  if (!window.location.hash) {
+    window.history.replaceState(null, null, "#.....")
+  }
+
+  updateInitialState();
+  initializeRow();
+  updateRow();
+
   var codeArea = new CodeArea($("#coding-area"), window.localStorage);
   codeArea.render();
 
@@ -146,8 +159,22 @@ $(document).ready(function() {
     }
   });
 
-  // Start it up!
-  initializeRow();
-  updateRow();
+  $(".reset").click(function(){
+    codeArea.save();
+    window.location.reload();
+  })
+
+  var rotation = {
+    ".":"b",
+    "b":"g",
+    "g":".",
+  };
+  $("td").click(function(event){
+    var index = event.currentTarget.cellIndex;
+    initial_state[index] = rotation[ initial_state[index] ];
+    window.history.replaceState(null, null, "#"+initial_state.join(""))
+    updateInitialState();
+  })
+
 });
 
