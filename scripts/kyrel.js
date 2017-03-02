@@ -107,6 +107,12 @@ function onGreen() {
 
 function CodeArea($el, store) {
   this.$el = $el;
+
+  var self = this;
+  this.$el.on("focus", function(){
+    self.removeError();
+  });
+
   this.rawCode = function(){
     return store.getItem("rawCode") || "// code in here!";
   }
