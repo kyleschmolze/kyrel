@@ -126,6 +126,16 @@ function CodeArea($el, store) {
 
 }
 
+// optional OO interface;
+var k = o = {
+  moveRight,
+  moveLeft,
+  draw,
+  erase,
+  useGreen,
+  useBlue
+};
+
 $(document).ready(function() {
   var rando = parseInt(Math.random()*10);
   console.log("Our random number for this run is "+rando);
