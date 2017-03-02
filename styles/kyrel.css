@@ -1,4 +1,4 @@
-.container {
+section {
   max-width: 800px;
   margin: 10px auto;
 }
@@ -47,4 +47,21 @@ table tr td {
 
 .reset {
   display: none;
+}
+
+#coding-area {
+  max-width: 500px;
+  margin: 10px auto;
+  padding: 1em;
+  border: 1px dashed grey;
+}
+
+#coding-area.has-error {
+  border-color: red;
+}
+#coding-area.has-error::after {
+  display: block;
+  font-weight: bold;
+  content: "Oh no! There's an error in your Javascript!";
+  text-align: right;
 }

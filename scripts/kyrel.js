@@ -32,8 +32,8 @@ function play() {
   if(typeof return_value !== 'undefined') {
     $(".instructions").append("<div><strong>returned "+return_value+"</strong></div>");
   }
-  $(".play").hide();
-  $(".reset").show();
+  // $(".play").hide();
+  // $(".reset").show();
 }
 
 function initializeRow() {
@@ -107,12 +107,44 @@ function onGreen() {
   return currentSquare().find(".dot.dot-green").length > 0;
 }
 
+function CodeArea($el, store) {
+  this.$el = $el;
+  this.rawCode = function(){
+    return store.getItem("rawCode") || "// code in here!";
+  }
+  this.save = function(){
+    var rawCode = this.$el[0].innerText; // innerText because we want line breaks
+    store.setItem("rawCode", rawCode);
+  }
+  this.render = function(){
+    this.$el.text(this.rawCode());
+  }
+  this.displayError = function(){
+    this.$el.addClass("has-error");
+  }
+  this.removeError = function(){
+    this.$el.removeClass("has-error");
+  }
+
+}
+
 $(document).ready(function() {
   var rando = parseInt(Math.random()*10);
   console.log("Our random number for this run is "+rando);
 
-  //attach listeners
-  $(".play").click(play);
+  var codeArea = new CodeArea($("#coding-area"), window.localStorage);
+  codeArea.render();
+
+  $(".play").click(function tryPlay() {
+    codeArea.removeError();
+    codeArea.save();
+    try {
+      window.main = new Function( codeArea.rawCode() );
+      play();
+    } catch (err) {
+      codeArea.displayError();
+    }
+  });
 
   // Start it up!
   initializeRow();
