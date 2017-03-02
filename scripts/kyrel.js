@@ -27,7 +27,8 @@ var kyrel = {
   color: colors.blue
 };
 
-function play() {
+function play(newMain) {
+  var main = newMain || main;
   var return_value = main();
   if(typeof return_value !== 'undefined') {
     $(".instructions").append("<div><strong>returned "+return_value+"</strong></div>");
@@ -123,6 +124,15 @@ function CodeArea($el, store) {
   this.render = function(){
     this.$el.text(this.rawCode());
   }
+  this.eval = function(cb){
+    this.removeError();
+    this.save();
+    try {
+      cb( this.rawCode() );
+    } catch (err) {
+      this.displayError();
+    }
+  }
   this.displayError = function(){
     this.$el.addClass("has-error");
   }
@@ -163,14 +173,10 @@ $(document).ready(function() {
   codeArea.render();
 
   $(".play").click(function tryPlay() {
-    codeArea.removeError();
-    codeArea.save();
-    try {
-      window.main = new Function( codeArea.rawCode() );
-      play();
-    } catch (err) {
-      codeArea.displayError();
-    }
+    codeArea.eval(function(rawCode){
+      var newMain = new Function( rawCode );
+      play(newMain);
+    });
   });
 
   $(".reset").click(function(){
