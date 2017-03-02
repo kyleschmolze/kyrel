@@ -3,62 +3,42 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Kyrel</title>
-	<link rel="stylesheet" type="text/css" href="kyrel.css">
+	<link rel="stylesheet" type="text/css" href="styles/kyrel.css">
 	<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js'></script>
-	<script type="text/javascript" src='kyrel.js'></script>
+  <script type="text/javascript" src='scripts/kyrel.js'></script>
+  <script type="text/javascript" src='scripts/play.js'></script>
 </head>
 <body>
-  <center>
-    <h2> Kyrel </h2>
-  </center>
-  <div class='container'>
-    <div class='grid'>
-      <table>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-      </table>
+  <section>
+    <center>
+      <h2> Kyrel </h2>
+    </center>
+    <div class='container'>
+      <div class='grid'>
+        <table>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+      </div>
     </div>
+  </section>
+
+  <section>
+    <pre id="coding-area" contenteditable>
+    </pre>
+    <center>
+      <br>
+      <a class='btn play' href='javascript:void(0);'>Run Code</a>
+      <a class='btn reset' href='javascript:void(0);'>Reset</a>
+    </center>
     <div class='instructions'>
     </div>
-  </div>
-  <center>
-    <br>
-    <a class='btn play' href='javascript:void(0);'>Play</a>
-    <a class='btn reset' href='javascript:void(0);'>Reset</a>
-  </center>
-	
+  </section>
+
 </body>
 </html>

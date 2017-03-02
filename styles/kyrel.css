@@ -1,4 +1,4 @@
-.container {
+section {
   max-width: 800px;
   margin: 10px auto;
 }
@@ -16,7 +16,7 @@
 }
 
 .instructions {
-  float: left;
+  float: right;
   width: 20%;
 }
 
@@ -29,6 +29,7 @@ table tr td {
   width: 30px;
   padding: 10px;
   border: 2px solid #ccc;
+  cursor: pointer;
 }
 
 .dot {
@@ -45,6 +46,20 @@ table tr td {
   border-radius: 3px;
 }
 
-.reset {
-  display: none;
+#coding-area {
+  max-width: 500px;
+  margin: 10px auto;
+  padding: 1em;
+  border: 1px dashed grey;
+}
+
+.error-msg {
+  color: red;
+}
+#coding-area.has-error::after {
+  display: block;
+  font-weight: bold;
+  color: red;
+  content: "Oh no! There's an error in your Javascript!";
+  text-align: right;
 }
