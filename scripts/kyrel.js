@@ -149,7 +149,9 @@ var k = o = {
   draw,
   erase,
   useGreen,
-  useBlue
+  useBlue,
+  onBlue,
+  onGreen
 };
 
 $(document).ready(function() {
