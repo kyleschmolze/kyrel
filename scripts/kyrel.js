@@ -162,11 +162,9 @@ $(document).ready(function() {
     try {
       window.main = new Function( codeArea.rawCode() );
       play();
-      $(".play").hide();
     } catch (err) {
       codeArea.displayError();
     }
-    $(".reset").show();
   });
 
   $(".reset").click(function(){

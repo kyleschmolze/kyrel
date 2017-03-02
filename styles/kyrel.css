@@ -46,10 +46,6 @@ table tr td {
   border-radius: 3px;
 }
 
-.reset {
-  display: none;
-}
-
 #coding-area {
   max-width: 500px;
   margin: 10px auto;
