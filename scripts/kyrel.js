@@ -32,8 +32,6 @@ function play() {
   if(typeof return_value !== 'undefined') {
     $(".instructions").append("<div><strong>returned "+return_value+"</strong></div>");
   }
-  $(".play").hide();
-  $(".reset").show();
 }
 
 function initializeRow() {
@@ -154,9 +152,11 @@ $(document).ready(function() {
     try {
       window.main = new Function( codeArea.rawCode() );
       play();
+      $(".play").hide();
     } catch (err) {
       codeArea.displayError();
     }
+    $(".reset").show();
   });
 
   $(".reset").click(function(){
