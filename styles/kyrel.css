@@ -59,6 +59,7 @@ table tr td {
 #coding-area.has-error::after {
   display: block;
   font-weight: bold;
+  color: red;
   content: "Oh no! There's an error in your Javascript!";
   text-align: right;
 }
